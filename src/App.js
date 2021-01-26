@@ -1,8 +1,12 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from '@emotion/react';
 import { useState, useEffect } from 'react';
+import RandomColorBox from './RandomColorBox';
+import ParamDisplay from './ParamDisplay';
 
 export default function App() {
-  return <div></div>;
+  return (
+    <>
+      <ParamDisplay />
+      <RandomColorBox />
+    </>
+  );
 }
