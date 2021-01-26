@@ -7,5 +7,5 @@ export default function RandomColorBox() {
     grid-area: 3 / 2;
   `;
 
-  return <div css={colorBoxStyle}>box</div>;
+  return <div css={colorBoxStyle}></div>;
 }
