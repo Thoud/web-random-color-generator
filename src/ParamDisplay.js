@@ -11,43 +11,61 @@ export default function ParamDisplay(props) {
     <div css={paramStyle}>
       <h1>Random Color Generator</h1>
       <div>
-        <label htmlFor="hue">Hue</label>
+        <label htmlFor="hue">Hue in degrees</label>
         <input
           id="hue"
           type="range"
           min="0"
           max="360"
-          defaultValue={props.hue}
+          value={props.hue}
           onChange={({ target }) => props.setHue(target.value)}
         />
-        <p>{props.hue}°</p>
+        <input
+          type="number"
+          min="0"
+          max="360"
+          value={props.hue}
+          onChange={({ target }) => props.setHue(target.value)}
+        />
       </div>
       <div>
-        <label htmlFor="saturation">Saturation</label>
+        <label htmlFor="saturation">Saturation in percent</label>
         <input
           id="saturation"
           type="range"
           min="0"
           max="100"
-          defaultValue={props.saturation}
+          value={props.saturation}
           onChange={({ target }) => props.setSaturation(target.value)}
         />
-        <p>{props.saturation} %</p>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          value={props.saturation}
+          onChange={({ target }) => props.setSaturation(target.value)}
+        />
       </div>
       <div>
-        <label htmlFor="lightness">Lightness</label>
+        <label htmlFor="lightness">Lightness in percent</label>
         <input
           id="lightness"
           type="range"
           min="0"
           max="100"
-          defaultValue={props.lightness}
+          value={props.lightness}
           onChange={({ target }) => props.setLightness(target.value)}
         />
-        <p>{props.lightness} %</p>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          value={props.lightness}
+          onChange={({ target }) => props.setLightness(target.value)}
+        />
       </div>
       <div>
-        <label htmlFor="width">Box-Width</label>
+        <label htmlFor="width">Box-Width in pixels</label>
         <input
           id="width"
           type="number"
@@ -56,7 +74,7 @@ export default function ParamDisplay(props) {
         />
       </div>
       <div>
-        <label htmlFor="height">Box-Height</label>
+        <label htmlFor="height">Box-Height in pixels</label>
         <input
           id="height"
           type="number"
