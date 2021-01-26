@@ -45,6 +45,24 @@ export default function ParamDisplay(props) {
         />
         <p>{props.lightness} %</p>
       </div>
+      <div>
+        <label htmlFor="width">Box-Width</label>
+        <input
+          id="width"
+          type="number"
+          defaultValue={props.width}
+          onChange={({ target }) => props.setWidth(target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="height">Box-Height</label>
+        <input
+          id="height"
+          type="number"
+          defaultValue={props.height}
+          onChange={({ target }) => props.setHeight(target.value)}
+        />
+      </div>
     </div>
   );
 }
