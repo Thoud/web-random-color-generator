@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import RandomColorBox from './RandomColorBox';
 import ParamDisplay from './ParamDisplay';
 
@@ -23,7 +23,13 @@ export default function App() {
         height={height}
         setHeight={setHeight}
       />
-      <RandomColorBox />
+      <RandomColorBox
+        hue={hue}
+        saturation={saturation}
+        lightness={lightness}
+        width={width}
+        height={height}
+      />
     </>
   );
 }

@@ -9,6 +9,7 @@ export default function ParamDisplay(props) {
 
   return (
     <div css={paramStyle}>
+      <h1>Random Color Generator</h1>
       <div>
         <label htmlFor="hue">Hue</label>
         <input
@@ -63,6 +64,8 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setHeight(target.value)}
         />
       </div>
+      <button>Change Settings</button>
+      <button>Random Color</button>
     </div>
   );
 }
