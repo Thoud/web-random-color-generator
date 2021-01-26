@@ -57,8 +57,8 @@ export default function RandomColorBox(props) {
   const colorBoxStyle = css`
     grid-area: 3 / 2;
     background-color: ${color};
-    width: ${props.width};
-    height: ${props.height};
+    width: ${props.width}px;
+    height: ${props.height}px;
   `;
 
   return (
