@@ -3,6 +3,7 @@
 import { css } from '@emotion/react';
 
 export default function ParamDisplay(props) {
+  // CSS-in-JS Styling
   const paramStyle = css`
     grid-area: 2 / 2;
   `;
@@ -10,6 +11,8 @@ export default function ParamDisplay(props) {
   return (
     <div css={paramStyle}>
       <h1>Random Color Generator</h1>
+
+      {/* User input for Hue */}
       <div>
         <label htmlFor="hue">Hue in degrees</label>
         <input
@@ -28,6 +31,8 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setHue(target.value)}
         />
       </div>
+
+      {/* User input for Saturation */}
       <div>
         <label htmlFor="saturation">Saturation in percent</label>
         <input
@@ -46,6 +51,8 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setSaturation(target.value)}
         />
       </div>
+
+      {/* User input for Lightness */}
       <div>
         <label htmlFor="lightness">Lightness in percent</label>
         <input
@@ -64,6 +71,8 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setLightness(target.value)}
         />
       </div>
+
+      {/* User input for Width */}
       <div>
         <label htmlFor="width">Box-Width in pixels</label>
         <input
@@ -73,6 +82,8 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setWidth(target.value)}
         />
       </div>
+
+      {/* User input for height */}
       <div>
         <label htmlFor="height">Box-Height in pixels</label>
         <input
@@ -82,7 +93,11 @@ export default function ParamDisplay(props) {
           onChange={({ target }) => props.setHeight(target.value)}
         />
       </div>
+
+      {/* Button for applying the new parameters (TBD!) */}
       <button>Change Settings</button>
+
+      {/* Button for generating a random color (TBD!) */}
       <button>Random Color</button>
     </div>
   );
