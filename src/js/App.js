@@ -77,8 +77,8 @@ export default function App() {
   const [hue, setHue] = useState(Math.floor(Math.random() * 360));
   const [saturation, setSaturation] = useState(Math.floor(Math.random() * 100));
   const [lightness, setLightness] = useState(Math.floor(Math.random() * 100));
-  const [width, setWidth] = useState(800);
-  const [height, setHeight] = useState(400);
+  const [width, setWidth] = useState(300);
+  const [height, setHeight] = useState(300);
 
   // Converting the hsl input from the user to rgb
   const rgbColor = hslToRgb(hue, saturation, lightness);
