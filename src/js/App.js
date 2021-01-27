@@ -2,8 +2,8 @@ import { useState } from 'react';
 import RandomColorBox from './RandomColorBox';
 import ParamDisplay from './ParamDisplay';
 
-// Function for converting hsl to hex
-const hslToHex = (h, s, l) => {
+// Function for converting hsl to rgb
+const hslToRgb = (h, s, l) => {
   s /= 100;
   l /= 100;
 
@@ -39,17 +39,37 @@ const hslToHex = (h, s, l) => {
     g = 0;
     b = x;
   }
-  // Having obtained RGB, convert channels to hex
-  r = Math.round((r + m) * 255).toString(16);
-  g = Math.round((g + m) * 255).toString(16);
-  b = Math.round((b + m) * 255).toString(16);
+  r = Math.round((r + m) * 255);
+  g = Math.round((g + m) * 255);
+  b = Math.round((b + m) * 255);
 
-  // Prepend 0s, if necessary
+  return [r, g, b];
+};
+
+// Function for converting rgb to hex
+const rgbToHex = (rgbArray) => {
+  let [r, g, b] = rgbArray;
+
+  r = r.toString(16);
+  g = g.toString(16);
+  b = b.toString(16);
+
   if (r.length === 1) r = '0' + r;
   if (g.length === 1) g = '0' + g;
   if (b.length === 1) b = '0' + b;
 
   return '#' + r + g + b;
+};
+
+// Function to decide between black and white text color according to the background color
+const getContrast = (rgbArray) => {
+  const [r, g, b] = rgbArray;
+
+  // Get YIQ ratio
+  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
+  // Check contrast
+  return yiq >= 128 ? 'black' : 'white';
 };
 
 export default function App() {
@@ -60,8 +80,14 @@ export default function App() {
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(400);
 
-  // Converting the hsl input from the user to hex
-  const color = hslToHex(hue, saturation, lightness);
+  // Converting the hsl input from the user to rgb
+  const rgbColor = hslToRgb(hue, saturation, lightness);
+
+  // Converting the rgb color to hex
+  const backgroundColor = rgbToHex(rgbColor);
+
+  // Deciding between black and white as text color
+  const textColor = getContrast(rgbColor);
 
   return (
     <>
@@ -77,7 +103,12 @@ export default function App() {
         height={height}
         setHeight={setHeight}
       />
-      <RandomColorBox color={color} width={width} height={height} />
+      <RandomColorBox
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+        width={width}
+        height={height}
+      />
     </>
   );
 }
