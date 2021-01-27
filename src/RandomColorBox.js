@@ -8,7 +8,10 @@ export default function RandomColorBox(props) {
     grid-area: 3 / 2;
     background-color: ${props.color};
     width: ${props.width}px;
+    max-width: 1000px;
     height: ${props.height}px;
+    max-height: 500px;
+    transition: all 1s ease-in-out;
   `;
 
   return (

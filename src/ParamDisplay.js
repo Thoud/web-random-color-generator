@@ -75,9 +75,12 @@ export default function ParamDisplay(props) {
       {/* User input for Width */}
       <div>
         <label htmlFor="width">Box-Width in pixels</label>
+        <p>(maximum 1000px)</p>
         <input
           id="width"
           type="number"
+          min="0"
+          max="1000"
           defaultValue={props.width}
           onChange={({ target }) => props.setWidth(target.value)}
         />
@@ -86,19 +89,27 @@ export default function ParamDisplay(props) {
       {/* User input for height */}
       <div>
         <label htmlFor="height">Box-Height in pixels</label>
+        <p>(maximum 500px)</p>
         <input
           id="height"
           type="number"
+          min="0"
+          max="500"
           defaultValue={props.height}
           onChange={({ target }) => props.setHeight(target.value)}
         />
       </div>
 
-      {/* Button for applying the new parameters (TBD!) */}
-      <button>Change Settings</button>
-
       {/* Button for generating a random color (TBD!) */}
-      <button>Random Color</button>
+      <button
+        onClick={() => {
+          props.setHue(Math.floor(Math.random() * 360));
+          props.setSaturation(Math.floor(Math.random() * 100));
+          props.setLightness(Math.floor(Math.random() * 100));
+        }}
+      >
+        Random Color
+      </button>
     </div>
   );
 }
