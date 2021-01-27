@@ -1,10 +1,14 @@
 /* General Styling */
+body,
+button,
+input[type='number'] {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
 
 body {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -56,6 +60,12 @@ p {
   margin: 0.3rem;
   padding: 0.3rem;
   text-align: center;
+}
+
+input[type='number'] {
+  border-radius: 1rem;
+  border: 1px solid #000000;
+  font-size: 16px;
 }
 
 button {

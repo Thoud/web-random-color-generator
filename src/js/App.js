@@ -102,6 +102,7 @@ export default function App() {
         setWidth={setWidth}
         height={height}
         setHeight={setHeight}
+        textColor={textColor}
       />
       <RandomColorBox
         backgroundColor={backgroundColor}
