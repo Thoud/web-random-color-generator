@@ -7,10 +7,11 @@ const hslToRgb = (h, s, l) => {
   s /= 100;
   l /= 100;
 
-  let c = (1 - Math.abs(2 * l - 1)) * s,
+  const c = (1 - Math.abs(2 * l - 1)) * s,
     x = c * (1 - Math.abs(((h / 60) % 2) - 1)),
-    m = l - c / 2,
-    r = 0,
+    m = l - c / 2;
+
+  let r = 0,
     g = 0,
     b = 0;
 
@@ -73,7 +74,7 @@ const getContrast = (rgbArray) => {
 };
 
 export default function App() {
-  //States
+  // States
   const [hue, setHue] = useState(Math.floor(Math.random() * 360));
   const [saturation, setSaturation] = useState(Math.floor(Math.random() * 100));
   const [lightness, setLightness] = useState(Math.floor(Math.random() * 100));

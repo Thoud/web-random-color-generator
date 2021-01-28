@@ -1,2 +1,2 @@
-# react-random-color-generator
- Random-Color-Generator built with React
+# react-meme-generator
+ A WebApp to generate Memes built with React
