@@ -24,7 +24,7 @@ export default function RandomColorBox(props) {
     <section id="sectionTwo">
       {/* Colored box */}
       <div css={colorBoxGeneralStyle}>
-        {/* Displaying the hex value of the background color */}
+        {/* Display the hex value of the background color */}
         <h2 css={contrastingTextColor}>{props.backgroundColor}</h2>
       </div>
     </section>

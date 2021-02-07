@@ -2,7 +2,7 @@ import { useState } from 'react';
 import RandomColorBox from './RandomColorBox';
 import ParamDisplay from './ParamDisplay';
 
-// Function for converting hsl to rgb
+// Function to convert hsl to rgb
 const hslToRgb = (h, s, l) => {
   s /= 100;
   l /= 100;
@@ -47,7 +47,7 @@ const hslToRgb = (h, s, l) => {
   return [r, g, b];
 };
 
-// Function for converting rgb to hex
+// Function to convert rgb to hex
 const rgbToHex = (rgbArray) => {
   let [r, g, b] = rgbArray;
 
@@ -81,13 +81,13 @@ export default function App() {
   const [width, setWidth] = useState(300);
   const [height, setHeight] = useState(300);
 
-  // Converting the hsl input from the user to rgb
+  // Convert the hsl input from the user to rgb
   const rgbColor = hslToRgb(hue, saturation, lightness);
 
-  // Converting the rgb color to hex
+  // Convert the rgb color to hex
   const backgroundColor = rgbToHex(rgbColor);
 
-  // Deciding between black and white as text color
+  // Decide between black and white as text color
   const textColor = getContrast(rgbColor);
 
   return (

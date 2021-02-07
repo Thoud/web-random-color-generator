@@ -212,7 +212,7 @@ export default function ParamDisplay(props) {
         </div>
       </div>
 
-      {/* Button for generating a random color */}
+      {/* Button to generate a random color */}
       <button
         onClick={() => {
           props.setHue(Math.floor(Math.random() * 360));
