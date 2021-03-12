@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import RandomColorBox from './RandomColorBox';
 import ParamDisplay from './ParamDisplay';
+import RandomColorBox from './RandomColorBox';
 
 // Function to convert hsl to rgb
 const hslToRgb = (h, s, l) => {
@@ -67,7 +67,7 @@ const getContrast = (rgbArray) => {
   const [r, g, b] = rgbArray;
 
   // Get YIQ ratio
-  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
 
   // Check contrast
   return yiq >= 128 ? 'black' : 'white';
