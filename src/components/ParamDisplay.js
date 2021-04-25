@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-export default function ParamDisplay(props) {
-  // CSS-in-JS Styling
-  const rangeStyling = css`
+// CSS-in-JS Styling
+const rangeStyling = (hue, saturation, lightness) => {
+  return css`
     input[type='range'] {
       width: 100%;
       margin: 3.95px 0;
@@ -16,7 +16,7 @@ export default function ParamDisplay(props) {
     }
 
     input[type='range']::-webkit-slider-runnable-track {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
       border: 0;
       border-radius: 25px;
@@ -37,12 +37,12 @@ export default function ParamDisplay(props) {
     }
 
     input[type='range']:focus::-webkit-slider-runnable-track {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
     }
 
     input[type='range']::-moz-range-track {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
       border: 0;
       border-radius: 25px;
@@ -71,14 +71,14 @@ export default function ParamDisplay(props) {
     }
 
     input[type='range']::-ms-fill-lower {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
       border: 0;
       border-radius: 50px;
     }
 
     input[type='range']::-ms-fill-upper {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
       border: 0;
       border-radius: 50px;
@@ -95,19 +95,21 @@ export default function ParamDisplay(props) {
     }
 
     input[type='range']:focus::-ms-fill-lower {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
     }
 
     input[type='range']:focus::-ms-fill-upper {
-      background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
+      background: hsl(${hue}, ${saturation}%, ${lightness}%);
       transition: background 0.5s ease-in-out;
     }
   `;
+};
 
-  const buttonStyling = css`
-    background: hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%);
-    color: ${props.textColor};
+const buttonStyling = (hue, saturation, lightness, textColor) => {
+  return css`
+    background: hsl(${hue}, ${saturation}%, ${lightness}%);
+    color: ${textColor};
     transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
     border: none;
     text-align: center;
@@ -116,9 +118,14 @@ export default function ParamDisplay(props) {
     border-radius: 1rem;
     font-size: 16px;
   `;
+};
 
+export default function ParamDisplay(props) {
   return (
-    <section id="sectionOne" css={rangeStyling}>
+    <section
+      id="sectionOne"
+      css={rangeStyling(props.hue, props.saturation, props.lightness)}
+    >
       <h1>Random Color Generator</h1>
 
       <div className="group">
@@ -219,7 +226,12 @@ export default function ParamDisplay(props) {
           props.setSaturation(Math.floor(Math.random() * 100));
           props.setLightness(Math.floor(Math.random() * 100));
         }}
-        css={buttonStyling}
+        css={buttonStyling(
+          props.hue,
+          props.saturation,
+          props.lightness,
+          props.textColor,
+        )}
       >
         Random Color
       </button>
